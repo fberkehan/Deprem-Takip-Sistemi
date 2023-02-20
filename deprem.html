@@ -1,0 +1,236 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Deprem Takip Sistemi</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+</head>
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-set-preferred-mode-onload="true">
+
+
+
+  <div id="loading" style="width: 100%; height: 100%; background-color: black; position: fixed; left: 0px; top: 0px; display:flex;place-content: center; align-items: center; flex-wrap: nowrap; z-index: 2147483647;">
+    <img width="150px" src="https://miro.medium.com/max/1400/1*e_Loq49BI4WmN7o9ItTADg.gif">
+  </div>
+
+
+  <div id="mapGoster"
+ 
+  style="
+   width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.651);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    display: none;
+    z-index: 2147483647;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    
+    ">
+<button class="" 
+id="kapatbutton"
+onClick="showMapClose()" style="    background-color: #6f009d;
+border: 0px;
+color: white;
+padding: 8px;
+border-radius: 10px 10px 0px 0px;
+width: 100px;">X</button>
+
+
+
+    <div 
+    id="morkutucuk"
+    class="animate__fadeIn"
+    style="width: 90%;
+    height: auto;
+    border-radius: 9px;
+    background-color: black;
+    border: 2px solid #6f009d;
+    position: relative;
+    overflow: auto;
+ ">
+
+<div class="content" >
+  <h2 class="content-title" id="depremBaslikuyari">
+      Deprem Hakkında
+      <a href="#" class="ml-5 text-decoration-none">#</a>
+  </h2>
+  <div style="overflow: auto;">
+    <p> 
+      <b id="konumPopup">Yükleniyor</b> konumunda <b id="tarihPopup">Yükleniyor</b> tarihinde <b id="siddetPopup">Yükleniyor</b> büyüklüğünde deprem oldu.
+      <br/><br/>
+      <b id="tehlikeDurumuPopup"><span class="badge badge-danger" >Yükleniyor</span> Olarak nitelendirildi. </b><br/> <br/>
+      Buna göre:
+  </p>
+  <ul id="Yapilacaklarr">
+    
+</ul>
+
+
+    </div>
+
+
+
+      <iframe style=" position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+    width: 95%;
+    border-radius: 10px;
+    height: 200px;
+    background-color: white;box-shadow: 0px 0px 10px black;
+    border: 0;
+    margin: auto !important;" id="mapifra" width="100%" height="450" frameborder="0"
+    src="https://maps.google.com/maps?q=37.3933,36.607&z=8&output=embed" allowfullscreen>
+    </iframe>
+    </div>
+
+        </div>
+     <a href="tel:112"><img width="100px" src="https://play-lh.googleusercontent.com/1eW1kykeZoRQMLy5JmiWQOb6UCXPPSTtBoMkdI5Oe5v-5ElS0bhqN8KlzQiXd-tHrnP0" alt=""></a>   
+
+  </div>
+ 
+ 
+
+  <div class="page-wrapper">
+
+
+    <div class="sticky-alerts"></div>
+
+
+
+    <div class="content-wrapper" style="padding: 17px;
+    margin: auto;">
+
+    
+    <div class="container">
+      <div id="map"></div>
+
+
+      <div class="buttons">
+      <button class="btn btn-danger" id="filter1">4 ></button>
+      <button class="btn btn-secondary" id="filter2">3-4</button>
+      <button class="btn btn-primary" id="filter3">0-3</button>
+      <button class="btn btn-success" id="filter4Button">Hepsi</button>
+     </div>
+
+
+    <table class="table" id="myTable">
+  <thead>
+    <tr>
+      <th>Konum</th>
+      <th>Tarih</th>
+      <th>Derinlik</th>
+      <th>Şiddet</th>
+    </tr>
+  </thead>
+  <tbody id="verileriDondur">
+    <p id="veriUyarisi" style="display: none;">Sağ aşağıdan güncelleyin...</p>
+  </tbody>
+</table>
+
+    </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+
+
+
+  <style>
+  .btn{
+    margin-bottom: 10px !important;
+  }
+  label{
+    font-size:20px;
+  }
+      .table td, .table th {
+    text-align: left;
+    padding: 10px !important;
+    max-width: 158px !important;
+}
+
+
+
+#map{
+  width: 100%;
+  height: 190px;
+  position: fixed !important;
+  z-index: 100;
+  left: 0px;
+  top: 0px;
+  display: none !important;
+}
+
+.badge{
+  font-size: 16px;
+}
+
+.btn{
+  margin: 3px;
+  width: 100%;
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+
+}
+.blink {
+      animation: blinker 0.9s linear infinite;
+      color: #ff0000;
+      font-size: 17px;
+      font-weight: bold;
+      font-family: sans-serif;
+      }
+      @keyframes blinker {  
+      50% { opacity: 0; }
+      }
+
+
+
+      .content-wrapper{
+        background-color: black !important;
+      }
+
+      .dark-mode .table tbody tr:not(:last-child), .dark-mode .table-bordered td:not(:last-child), .dark-mode .table-bordered th:not(:last-child), .dark-mode .table-inner-bordered td:not(:last-child), .dark-mode .table-inner-bordered th:not(:last-child) {
+    border-color: #6b00a6 !important;
+}
+
+
+.dark-mode .table tfoot tr, .dark-mode .table thead tr, .dark-mode .table-bordered, .dark-mode .table-outer-bordered {
+    border-color: #6b00a6;
+}
+
+
+
+
+  </style>
+  
+</body>
+</html>
