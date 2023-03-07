@@ -9,11 +9,9 @@
     
     <title>Deprem Verileri</title>
     <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
   <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-set-preferred-mode-onload="true">
 
     <div id="loading" style="width: 100%; height: 100%; background-color: black; position: fixed; left: 0px; top: 0px; display:flex;place-content: center; align-items: center; flex-wrap: nowrap; z-index: 2147483647;">
@@ -22,44 +20,14 @@
 
       
       
-  <div id="mapGoster"
- 
-  style="
-   width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.651);
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    display: none;
-    z-index: 2147483647;
-    align-items: center;
-    justify-content: flex-end;
-    flex-direction: column;
-    
-    ">
+  <div id="mapGoster">
 <button class="" 
 id="kapatbutton"
-onClick="showMapClose()" style="    background-color: #6f009d;
-border: 0px;
-color: white;
-padding: 8px;
-border-radius: 10px 10px 0px 0px;
-width: 100px;">X</button>
+onClick="showMapClose()">X</button>
 
 
 
-    <div 
-    id="morkutucuk"
-    class="animate__fadeIn"
-    style="width: 90%;
-    height: auto;
-    border-radius: 9px;
-    background-color: black;
-    border: 2px solid #6f009d;
-    position: relative;
-    overflow: auto;
- ">
+    <div id="morkutucuk" class="animate__fadeIn">
 
 <div class="content" >
   <h2 class="content-title" id="depremBaslikuyari">
@@ -82,17 +50,7 @@ width: 100px;">X</button>
 
 
 
-      <iframe style=" position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    bottom: 3px;
-    width: 95%;
-    border-radius: 10px;
-    height: 200px;
-    background-color: white;box-shadow: 0px 0px 10px black;
-    border: 0;
-    margin: auto !important;" id="mapifra" width="100%" height="450" frameborder="0"
+      <iframe id="mapifra" width="100%" height="450" frameborder="0"
     src="https://maps.google.com/maps?q=37.3933,36.607&z=8&output=embed" allowfullscreen>
     </iframe>
     </div>
@@ -146,75 +104,5 @@ width: 100px;">X</button>
   <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   <script src="main.js"></script>
-
-<style>
-    .btn{
-      margin-bottom: 10px !important;
-    }
-    label{
-      font-size:20px;
-    }
-        .table td, .table th {
-      text-align: left;
-      padding: 10px !important;
-      max-width: 158px !important;
-  }
-  
-  
-  
-  #map{
-    width: 100%;
-    height: 190px;
-    position: fixed !important;
-    z-index: 100;
-    left: 0px;
-    top: 0px;
-    display: none !important;
-  }
-  
-  .badge{
-    font-size: 16px;
-  }
-  
-  .btn{
-    margin: 3px;
-    width: 100%;
-  }
-  .buttons{
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      align-content: center;
-      flex-wrap: nowrap;
-  
-  }
-  .blink {
-        animation: blinker 0.9s linear infinite;
-        color: #ff0000;
-        font-size: 17px;
-        font-weight: bold;
-        font-family: sans-serif;
-        }
-        @keyframes blinker {  
-        50% { opacity: 0; }
-        }
-  
-  
-  
-        .content-wrapper{
-          background-color: black;
-        }
-  
-        .dark-mode .table tbody tr:not(:last-child), .dark-mode .table-bordered td:not(:last-child), .dark-mode .table-bordered th:not(:last-child), .dark-mode .table-inner-bordered td:not(:last-child), .dark-mode .table-inner-bordered th:not(:last-child) {
-      border-color: #6b00a6 !important;
-  }
-  
-  
-  .dark-mode .table tfoot tr, .dark-mode .table thead tr, .dark-mode .table-bordered, .dark-mode .table-outer-bordered {
-      border-color: #6b00a6;
-  }
-  
-    </style>
 </body>
 </html>
