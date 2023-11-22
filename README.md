@@ -13,7 +13,7 @@ Projeyi Kimler İçin Yaptık: Bu projeyi, deprem konusunda bilgi edinmek isteye
 Kullanılan Teknolojiler: JavaScript, Kandilli Rasathanesi API'si, harita API'si, APK dönüştürme aracı
 
 GOOGLE PLAY'DE YAYINDA!:
-https://play.google.com/store/apps/details?id=com.fuber.detasipro
+[https://play.google.com/store/apps/details?id=com.fuber.detasipro](https://play.google.com/store/apps/details?id=com.fuber.detasi)
 
 ![image](https://user-images.githubusercontent.com/83727951/220172372-17d34b33-53f1-426b-abcc-b571db46ae28.png)
 ![image](https://user-images.githubusercontent.com/83727951/220172439-5adb03e2-4b36-46f9-a2ab-82d6f7b1a9e4.png)
